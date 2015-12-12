@@ -16,7 +16,7 @@ import java.sql.ResultSet;
 public class BaseDeDatos {
 private String nombreBD = "agenda";
 private String userName = "root";
-private String password = "1234";
+private String password = "123456";
 private String url = "jdbc:mysql://localhost:3306/"+nombreBD;
 private String controlador="com.mysql.jdbc.Driver";
 private JDBCMiddler jdbc;
@@ -130,7 +130,7 @@ private JDBCMiddler jdbc;
     public static void main(String args[])
     {
         BaseDeDatos x=new BaseDeDatos();
-        String sql="INSERT INTO `agenda`.`contacto` (`id`, `nombre`, `telefono`, `fecha`, `vinculo`) VALUES (2, 'Andres', '31654525', '24/23/2015', 'fanilia')";
+        String sql="INSERT INTO `agenda`.`contacto` (`nombre`, `apellidos`,`telefono`, `vinculo`, `id`,`fechaNacimiento`) VALUES ('Andres','Dearmas', '31654525','familia',2,'24/23/2015', )";
         if(x.ejecutarActualizacionSQL(sql))
             System.out.println("Si pudo insertar");
         else

@@ -29,6 +29,15 @@ public class serviceContacto {
 		return DaoContacto1.insertar();					
 	}
 	
+	public String selecionarId(int id) {
+		EntityContacto seleccionar_id = new EntityContacto ();
+		seleccionar_id.setId(id);
+	    DaoContacto1=new DaoContacto(seleccionar_id,basededatos);
+	    return DaoContacto1.SelectNombre();
+	  
+	}
+	
+	
 	public String selecionarNombre(String nombre) {
 		EntityContacto seleccionar_nombre = new EntityContacto ();
 		seleccionar_nombre.setNombre(nombre);

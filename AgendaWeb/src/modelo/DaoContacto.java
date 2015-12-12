@@ -47,14 +47,7 @@ public class DaoContacto {
 		return baseDeDatos.getTablaHTML(sql);
 
 	}
-	public String SelectId() {
-
-		String sql = "SELECT * from contacto where id='%" + entityContacto.getFechaNacimieto() + "%'";
-		return baseDeDatos.getTablaHTML(sql);
-
-	}
 	
-
 	public String Selectvinculo() {
 
 		String sql = "SELECT * from contacto where vinculo LIKE '%" + entityContacto.getVinculo() + "%'";
@@ -77,9 +70,13 @@ public class DaoContacto {
 
 	public String modificar() {
 
-		String sql = "UPDATE `agenda`.`contacto` SET `nombre`='" + entityContacto.getNombre() + "', `telefono`='" + entityContacto.getTelefono()
-				+ "', `fecha`='" + formato.format(entityContacto.getFechaNacimieto()) + "', `vinculo`='"
-				+ entityContacto.getVinculo() + "', `imagen`='" + entityContacto.getImagen() + "' WHERE  `id`="
+		String sql = "UPDATE `agenda`.`contacto` SET `nombre`='" + entityContacto.getNombre() 
+		        + "',`apellidos`='" + entityContacto.getApellidos() 
+		        + "',`telefono`='" + entityContacto.getTelefono()
+				+ "',`fecha`='" + formato.format(entityContacto.getFechaNacimieto())
+				+ "', `vinculo`='" + entityContacto.getVinculo()
+				+ "', `imagen`='" + entityContacto.getImagen()
+				+ "' WHERE  `id`="
 				+ entityContacto.getId();
 		if (baseDeDatos.ejecutarActualizacionSQL(sql))
 			return "Si pudo Actualizar";
@@ -90,10 +87,14 @@ public class DaoContacto {
 
 	public String insertar() {
 
-		String sql = "INSERT INTO `agenda`.`contacto` (`id`, `nombre`, `telefono`, `fecha`, `vinculo`, `imagen`)  VALUES ("
-				+ entityContacto.getId() + ",'" + entityContacto.getNombre()+ "','"
-				+ entityContacto.getTelefono() + "','" + formato.format(entityContacto.getFechaNacimieto()) + "','"
-				+ entityContacto.getVinculo() + "','" + entityContacto.getImagen() + "')";
+		String sql = "INSERT INTO `agenda`.`contacto` (`id`,`nombre`,`apellidos`, `telefono`,`fechaNacimiento`,`vinculo`,`imagen`)VALUES ("
+				
+				+ entityContacto.getNombre()+ "','"
+				+ entityContacto.getApellidos()+",'"
+				+ entityContacto.getTelefono() + "','" 
+				+ formato.format(entityContacto.getFechaNacimieto()) + "','"
+				+ entityContacto.getVinculo() + "','" 
+				+ entityContacto.getImagen() + "')";
 		System.out.println(sql);
 		if (baseDeDatos.ejecutarActualizacionSQL(sql))
 			return "Ha sido registrado";

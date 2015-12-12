@@ -30,11 +30,11 @@ public Controlador() {
 	super();
 }
 
-public String insertar(String nombre, String apellido, String telefono, String vinculo, String imagen, String fechaNacimiento, String id){ 
+public String insertar(String nombre, String apellidos, String telefono, String vinculo, String imagen, String fechaNacimiento, String id){ 
     
 	@SuppressWarnings("deprecation")
-	EntityContacto entityContactos= new EntityContacto (nombre,apellido,telefono,vinculo,imagen, Integer.parseInt(id),new Date(fechaNacimiento));
-	return Servicio.insertar(nombre, apellido, telefono, vinculo, imagen, id, fechaNacimiento);
+	EntityContacto entityContactos= new EntityContacto (nombre,apellidos,telefono,vinculo,imagen, Integer.parseInt(id),new Date(fechaNacimiento));
+	return Servicio.insertar(nombre, apellidos, telefono, vinculo, imagen, id, fechaNacimiento);
  
 }
 
@@ -61,4 +61,11 @@ return Servicio.selecionarTelefono(telefono);
 
 public String ConsultarVinculo(String Vinculo){
 return Servicio.selecionarVinculo(Vinculo);}
+
+public String ConsultarId(int id){
+return Servicio.selecionarId(id);}
+
 }
+
+
+
